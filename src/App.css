@@ -1,0 +1,9 @@
+.app {
+    min-height: 100vh;
+    padding: 1rem 0;
+}
+
+.app-container {
+    margin: 0 auto;
+    width: min(100% - 2rem, 1100px);
+}

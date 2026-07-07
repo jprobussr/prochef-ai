@@ -1,10 +1,14 @@
 import './App.css';
+import Header from './Header/Header.jsx';
 
 const App = () => {
   return (
-    <main className='app'>
-      <h1>ChefPro AI</h1>
-    </main>
+    <div className='app'>
+      <main className='app-container'>
+        <Header />
+
+      </main>
+    </div>
   )
 }
 
