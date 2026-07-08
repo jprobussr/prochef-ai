@@ -13,6 +13,14 @@ const App = () => {
     });
   };
 
+  const handleRemoveIngredient = (ingredientToRemove) => {
+    setIngredients((prevIngredients) => {
+      return prevIngredients.filter((ingredient) => {
+        return ingredient !== ingredientToRemove;
+      });
+    });
+  };
+
   return (
     <div className="app">
       <main className="app-container">
@@ -20,8 +28,10 @@ const App = () => {
 
         <IngredientForm onAddIngredient={handleAddIngredient} />
 
-        <IngredientList ingredients={ingredients} />
-        
+        <IngredientList
+          ingredients={ingredients}
+          onRemoveIngredient={handleRemoveIngredient}
+        />
       </main>
     </div>
   );

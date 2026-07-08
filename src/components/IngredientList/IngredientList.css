@@ -21,3 +21,25 @@
   border-radius: 999px;
   font-weight: 600;
 }
+
+.ingredient-list-section li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ingredient-list-section li button {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: #fed7aa;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ingredient-list-section li button:hover {
+  background: rgba(254, 215, 170, 0.18);
+}
