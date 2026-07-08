@@ -3,6 +3,7 @@ import Header from './components/Header/Header.jsx';
 import IngredientForm from './components/IngredientForm/IngredientForm.jsx';
 import { useState } from 'react';
 import IngredientList from './components/IngredientList/IngredientList.jsx';
+import RecipeCallout from './components/RecipeCallout.jsx';
 
 const App = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -37,6 +38,8 @@ const App = () => {
           onRemoveIngredient={handleRemoveIngredient}
           onClearIngredients={handleClearIngredients}
         />
+
+        {ingredients.length >= 3 && <RecipeCallout />}
       </main>
     </div>
   );

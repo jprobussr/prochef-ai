@@ -1,0 +1,48 @@
+.recipe-callout {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: #1f2937;
+  border: 1px solid rgba(249, 115, 22, 0.15);
+}
+
+.recipe-callout h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.recipe-callout p {
+  margin: 0.75rem 0 1.25rem;
+  color: #d1d5db;
+  line-height: 1.6;
+}
+
+.recipe-callout button {
+  min-height: 3rem;
+  padding: 0 1.25rem;
+  border: none;
+  border-radius: 999px;
+  background: #f97316;
+  color: #111827;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.recipe-callout button:hover {
+  background: #fb923c;
+}
+
+.recipe-callout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .recipe-callout {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

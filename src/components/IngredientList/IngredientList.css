@@ -64,3 +64,9 @@
 .ingredient-list-header button:hover {
   color: #fed7aa;
 }
+
+.ingredient-list-empty {
+  margin: 0 0 1.5rem;
+  color: #9ca3af;
+  line-height: 1.6;
+}
