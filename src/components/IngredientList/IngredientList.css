@@ -3,7 +3,7 @@
 }
 
 .ingredient-list-section h2 {
-  margin: 0 0 1rem;
+  margin: 0;
   font-size: 1.5rem;
 }
 .ingredient-list-section ul {
@@ -42,4 +42,25 @@
 
 .ingredient-list-section li button:hover {
   background: rgba(254, 215, 170, 0.18);
+}
+
+.ingredient-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ingredient-list-header button {
+  border: none;
+  background: transparent;
+  color: #fb923c;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ingredient-list-header button:hover {
+  color: #fed7aa;
 }

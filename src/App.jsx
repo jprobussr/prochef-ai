@@ -21,6 +21,10 @@ const App = () => {
     });
   };
 
+  const handleClearIngredients = () => {
+    setIngredients([]);
+  };
+
   return (
     <div className="app">
       <main className="app-container">
@@ -31,6 +35,7 @@ const App = () => {
         <IngredientList
           ingredients={ingredients}
           onRemoveIngredient={handleRemoveIngredient}
+          onClearIngredients={handleClearIngredients}
         />
       </main>
     </div>
