@@ -5,6 +5,7 @@ import { useState } from 'react';
 import IngredientList from './components/IngredientList/IngredientList.jsx';
 import RecipeCallout from './components/RecipeCallout.jsx';
 import { getRecipe } from './ai.js';
+import RecipeDisplay from './components/RecipeDisplay/RecipeDisplay.jsx';
 
 const App = () => {
   const [ingredients, setIngredients] = useState([]);
@@ -51,7 +52,7 @@ const App = () => {
           <RecipeCallout onGenerateRecipe={handleGenerateRecipe} />
         )}
 
-        {recipe && <pre>{recipe}</pre>}
+        {recipe && <RecipeDisplay recipe={recipe} />}
       </main>
     </div>
   );

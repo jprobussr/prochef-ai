@@ -20,6 +20,6 @@ export const getRecipe = async (ingredients) => {
   });
 
   const recipeText = response.content[0].text;
-  console.log(recipeText);
+  
   return recipeText;
 };

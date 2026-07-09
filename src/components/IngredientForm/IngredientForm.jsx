@@ -5,7 +5,6 @@ const IngredientForm = ({ onAddIngredient }) => {
   const [ingredient, setIngredient] = useState('');
 
   const handleIngredientChange = (e) => {
-    console.log(e.target.value);
     setIngredient(e.target.value);
   };
 
@@ -18,7 +17,6 @@ const IngredientForm = ({ onAddIngredient }) => {
       return;
     }
 
-    console.log(trimmedIngredient);
     onAddIngredient(trimmedIngredient);
 
     setIngredient('');
