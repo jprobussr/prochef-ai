@@ -4,9 +4,11 @@ import IngredientForm from './components/IngredientForm/IngredientForm.jsx';
 import { useState } from 'react';
 import IngredientList from './components/IngredientList/IngredientList.jsx';
 import RecipeCallout from './components/RecipeCallout.jsx';
+import { getRecipe } from './ai.js';
 
 const App = () => {
   const [ingredients, setIngredients] = useState([]);
+  const [recipe, setRecipe] = useState('');
 
   const handleAddIngredient = (newIngredient) => {
     setIngredients((prevIngredients) => {
@@ -26,6 +28,12 @@ const App = () => {
     setIngredients([]);
   };
 
+  const handleGenerateRecipe = async () => {
+    const recipeText = await getRecipe(ingredients);
+
+    setRecipe(recipeText);
+  };
+
   return (
     <div className="app">
       <main className="app-container">
@@ -39,7 +47,11 @@ const App = () => {
           onClearIngredients={handleClearIngredients}
         />
 
-        {ingredients.length >= 3 && <RecipeCallout />}
+        {ingredients.length >= 3 && (
+          <RecipeCallout onGenerateRecipe={handleGenerateRecipe} />
+        )}
+
+        {recipe && <pre>{recipe}</pre>}
       </main>
     </div>
   );
