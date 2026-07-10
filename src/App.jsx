@@ -10,6 +10,7 @@ import RecipeDisplay from './components/RecipeDisplay/RecipeDisplay.jsx';
 const App = () => {
   const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleAddIngredient = (newIngredient) => {
     setIngredients((prevIngredients) => {
@@ -30,9 +31,13 @@ const App = () => {
   };
 
   const handleGenerateRecipe = async () => {
+    setIsLoading(true);
+
     const recipeText = await getRecipe(ingredients);
 
     setRecipe(recipeText);
+
+    setIsLoading(false);
   };
 
   return (
@@ -49,7 +54,10 @@ const App = () => {
         />
 
         {ingredients.length >= 3 && (
-          <RecipeCallout onGenerateRecipe={handleGenerateRecipe} />
+          <RecipeCallout
+            onGenerateRecipe={handleGenerateRecipe}
+            isLoading={isLoading}
+          />
         )}
 
         {recipe && <RecipeDisplay recipe={recipe} />}
