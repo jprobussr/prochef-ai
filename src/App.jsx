@@ -15,6 +15,14 @@ const App = () => {
 
   const handleAddIngredient = (newIngredient) => {
     setIngredients((prevIngredients) => {
+      const ingredientExists = prevIngredients.some((ingredient) => {
+        return ingredient.toLowerCase() === newIngredient.toLowerCase();
+      });
+
+      if (ingredientExists) {
+        return prevIngredients;
+      }
+
       return [...prevIngredients, newIngredient];
     });
   };
@@ -34,6 +42,7 @@ const App = () => {
   const handleGenerateRecipe = async () => {
     setIsLoading(true);
     setError('');
+    setRecipe('')
 
     try {
       const recipeText = await getRecipe(ingredients);
