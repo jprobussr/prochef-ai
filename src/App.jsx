@@ -1,7 +1,7 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header.jsx';
 import IngredientForm from './components/IngredientForm/IngredientForm.jsx';
-import { useState } from 'react';
 import IngredientList from './components/IngredientList/IngredientList.jsx';
 import RecipeCallout from './components/RecipeCallout.jsx';
 import { getRecipe } from './ai.js';
@@ -12,6 +12,10 @@ const App = () => {
   const [recipe, setRecipe] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    setRecipe('');
+  }, [ingredients]);
 
   const handleAddIngredient = (newIngredient) => {
     setIngredients((prevIngredients) => {
@@ -42,7 +46,7 @@ const App = () => {
   const handleGenerateRecipe = async () => {
     setIsLoading(true);
     setError('');
-    setRecipe('')
+    setRecipe('');
 
     try {
       const recipeText = await getRecipe(ingredients);
