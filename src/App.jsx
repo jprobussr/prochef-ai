@@ -11,6 +11,7 @@ const App = () => {
   const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleAddIngredient = (newIngredient) => {
     setIngredients((prevIngredients) => {
@@ -32,12 +33,16 @@ const App = () => {
 
   const handleGenerateRecipe = async () => {
     setIsLoading(true);
+    setError('');
 
-    const recipeText = await getRecipe(ingredients);
-
-    setRecipe(recipeText);
-
-    setIsLoading(false);
+    try {
+      const recipeText = await getRecipe(ingredients);
+      setRecipe(recipeText);
+    } catch {
+      setError('Unable to generate a recipe. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -59,6 +64,8 @@ const App = () => {
             isLoading={isLoading}
           />
         )}
+
+        {error && <p className="recipe-error">{error}</p>}
 
         {recipe && <RecipeDisplay recipe={recipe} />}
       </main>

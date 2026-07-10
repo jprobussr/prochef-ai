@@ -1,9 +1,18 @@
 .app {
-    min-height: 100vh;
-    padding: 1rem 0;
+  min-height: 100vh;
+  padding: 1rem 0;
 }
 
 .app-container {
-    margin: 0 auto;
-    width: min(100% - 2rem, 1100px);
+  margin: 0 auto;
+  width: min(100% - 2rem, 1100px);
+}
+
+.recipe-error {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #fdecec;
+  color: #8a1c1c;
+  font-weight: 600;
 }
