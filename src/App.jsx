@@ -8,13 +8,21 @@ import { getRecipe } from './ai.js';
 import RecipeDisplay from './components/RecipeDisplay/RecipeDisplay.jsx';
 
 const App = () => {
-  const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [ingredients, setIngredients] = useState(() => {
+    const savedIngredients = localStorage.getItem('ingredients');
+
+    return savedIngredients ? JSON.parse(savedIngredients) : [];
+  });
 
   useEffect(() => {
     setRecipe('');
+  }, [ingredients]);
+
+  useEffect(() => {
+    localStorage.setItem('ingredients', JSON.stringify(ingredients));
   }, [ingredients]);
 
   const handleAddIngredient = (newIngredient) => {
