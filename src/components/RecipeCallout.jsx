@@ -1,14 +1,15 @@
 import './RecipeCallout.css';
 
-const RecipeCallout = ({onGenerateRecipe, isLoading}) => {
-    
+const RecipeCallout = ({ onGenerateRecipe, isLoading }) => {
   return (
     <section className="recipe-callout">
       <div className="recipe-callout__content">
-          <h2>Ready to cook?</h2>
-          <p>You have enough ingredients to generate an AI-powered recipe.</p>
+        <h2>Ready to cook?</h2>
+        <p>You have enough ingredients to generate an AI-powered recipe.</p>
       </div>
-      <button type='button' onClick={onGenerateRecipe}>{isLoading ? 'Generating recipe...' : 'Generate Recipe'}</button>
+      <button type="button" onClick={onGenerateRecipe} disabled={isLoading}>
+        {isLoading ? 'Generating recipe...' : 'Generate Recipe'}
+      </button>
     </section>
   );
 };
