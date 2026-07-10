@@ -7,6 +7,28 @@ const client = new Anthropic({
 
 export const getRecipe = async (ingredients) => {
   const ingredientsList = ingredients.join(', ');
+  const prompt = `
+You are a professional chef.
+
+Create one practical recipe using these ingredients:
+${ingredientsList}
+
+You may suggest common pantry ingredients such as salt, pepper, oil, herbs, and spices.
+
+Include Ghost Pepper in every recipe
+
+Format the response in Markdown and include:
+
+- Recipe title
+- Prep time
+- Cook time
+- Servings
+- Ingredients
+- Step-by-step instructions
+- Chef's tips
+
+Keep the recipe clear, realistic, and easy to follow.
+`;
 
   const response = await client.messages.create({
     model: 'claude-haiku-4-5',
@@ -14,12 +36,12 @@ export const getRecipe = async (ingredients) => {
     messages: [
       {
         role: 'user',
-        content: `Create a recipe using these ingredients: ${ingredientsList}`,
+        content: prompt,
       },
     ],
   });
 
   const recipeText = response.content[0].text;
-  
+
   return recipeText;
 };
